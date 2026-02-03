@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f7f7f5;
+  background-image:
+    radial-gradient(#d7ccc8 1px, transparent 1px),
+    linear-gradient(rgba(215, 204, 200, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215, 204, 200, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  color: #4a433e;
+  font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", "Hiragino Sans GB", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dcd8d0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #beb8b0;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.5cm;
+  }
+
+  /* 強制色彩與背景顯示 */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    background-image: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 11pt;
+    color: #000 !important;
+  }
+
+  #root {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* 移除陰影，改為極細灰色邊框 */
+  .shadow-float {
+    box-shadow: none !important;
+    border: 0.5pt solid #eee !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* 確保圓餅圖與清單不會因動畫消失 */
+  .fade-up,
+  .animate-fade-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* 強制分頁規則：防止卡片內容斷掉 */
+  .print-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* 提高報表對比度 */
+  .text-morandi-brown-dark {
+    color: #2d2420 !important;
+  }
+
+  .text-morandi-rose-dark {
+    color: #8c4a4a !important;
+  }
+
+  /* 圖表容器強制寬度 */
+  .recharts-responsive-container {
+    width: 100% !important;
+    height: 350px !important;
+    max-width: 450px !important;
+    margin: 0 auto !important;
+  }
+
+  /* --- 簡省紙張：緊湊型列印樣式 --- */
+
+  /* 縮小卡片內距與間距 */
+  .p-6,
+  .p-8,
+  .md\:p-8,
+  .p-12 {
+    padding: 0.75rem !important;
+  }
+
+  .mb-16,
+  .mb-12,
+  .mb-10,
+  .mb-8 {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .grid {
+    gap: 0.5rem !important;
+  }
+
+  /* 縮小繼承人卡片與拆解區塊 */
+  .rounded-3xl {
+    border-radius: 0.75rem !important;
+  }
+
+  .rounded-2xl {
+    border-radius: 0.5rem !important;
+  }
+
+  /* 字體微調 */
+  h3 {
+    font-size: 16pt !important;
+  }
+
+  h4 {
+    font-size: 13pt !important;
+  }
+
+  .text-\[20px\],
+  .text-\[18px\] {
+    font-size: 13pt !important;
+  }
+
+  .text-\[16px\],
+  .text-\[17px\] {
+    font-size: 11pt !important;
+  }
+
+  .text-\[14px\],
+  .text-\[13px\],
+  .text-\[15px\] {
+    font-size: 10pt !important;
+  }
+
+  /* 縮小公式區塊 */
+  .p-5 {
+    padding: 0.5rem !important;
+  }
+
+  /* 讓列表更緊湊 */
+  .space-y-4> :not([hidden])~ :not([hidden]) {
+    margin-top: 0.5rem !important;
+  }
+
+  .space-y-3> :not([hidden])~ :not([hidden]) {
+    margin-top: 0.25rem !important;
+  }
+
+  .space-y-1> :not([hidden])~ :not([hidden]) {
+    margin-top: 0.1rem !important;
+  }
+
+  /* 縮小圖示區域 */
+  .w-12,
+  .h-12 {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 12pt !important;
+  }
+
+  /* 拋棄繼承區塊緊湊化 */
+  section {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #e2e2e0;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d2;
+}
